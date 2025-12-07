@@ -1,0 +1,98 @@
+/* ==== Base styling ==== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    color: #222;
+}
+
+/* Center the whole app */
+.app {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+/* ==== Header ==== */
+.app-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.app-header h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 14px;
+}
+
+/* ==== Card container ==== */
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+/* ==== Buttons ==== */
+.btn {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+.btn.primary {
+    background: #4b7bec;
+    color: white;
+}
+
+.btn.primary:hover {
+    background: #3867d6;
+}
+
+.btn.secondary {
+    background: #d1d8e0;
+}
+
+.btn.secondary:hover {
+    background: #ced6e0;
+}
+
+/* ==== Inputs ==== */
+.input, textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    margin-top: 6px;
+    resize: vertical;
+}
+
+/* ==== Output ==== */
+.output {
+    background: #000;
+    color: #0f0;
+    padding: 15px;
+    border-radius: 8px;
+    white-space: pre-wrap;
+    font-family: monospace;
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+/* ==== Footer ==== */
+.app-footer {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 13px;
+    color: #777;
+}
