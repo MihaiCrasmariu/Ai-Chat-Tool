@@ -15,23 +15,60 @@
         </header>
 
         <main class="app-main">
-            <section class="card">
-                <h2>Backend status</h2>
-                <button id="test-backend" class="btn secondary">Test backend</button>
-            </section>
+    <!-- Card backend -->
+    <section class="card">
+        <h2>Backend status</h2>
+        <button id="test-backend" class="btn secondary">Test backend</button>
+    </section>
 
-            <section class="card">
-                <h2>AI Prompt</h2>
-                <label for="prompt" class="label">Your prompt:</label>
-                <textarea id="prompt" rows="4" class="input"></textarea>
-                <button id="send-prompt" class="btn primary">Send to AI</button>
-            </section>
+    <!-- Card text → AI text -->
+    <section class="card">
+        <h2>AI Prompt</h2>
+        <label for="prompt" class="label">Your prompt:</label>
+        <textarea id="prompt" rows="4" class="input"></textarea>
+        <button id="send-prompt" class="btn primary">Send to AI</button>
+    </section>
 
-            <section class="card">
-                <h2>Output</h2>
-                <pre id="output" class="output"></pre>
-            </section>
-        </main>
+    <!-- Card output text -->
+    <section class="card">
+        <h2>Output</h2>
+        <pre id="output" class="output"></pre>
+    </section>
+
+    <!-- Card image understanding -->
+    <section class="card">
+        <h2>Image understanding</h2>
+
+        <label for="image-input" class="label">Upload an image:</label>
+        <input type="file" id="image-input" accept="image/*" class="input">
+
+        <label for="image-prompt" class="label" style="margin-top:10px; display:block;">
+            Optional prompt about the image:
+        </label>
+        <textarea id="image-prompt" rows="3" class="input"
+                  placeholder="e.g. Explain what is happening in this picture."></textarea>
+
+        <button id="analyze-image" class="btn primary" style="margin-top:12px;">
+            Analyze image with AI
+        </button>
+    </section>
+
+    <!-- Card image generation -->
+    <section class="card">
+        <h2>Image generation</h2>
+
+        <label for="gen-prompt" class="label">Prompt for image:</label>
+        <textarea id="gen-prompt" rows="3" class="input"
+                  placeholder="e.g. A cyberpunk city at night with neon lights."></textarea>
+
+        <button id="gen-image" class="btn primary" style="margin-top:12px;">
+            Generate image
+        </button>
+
+        <div id="gen-image-result" style="margin-top:14px;"></div>
+    </section>
+</main>
+
 
         <footer class="app-footer">
             <small>Built for practice · Flask · OpenAI · Vercel · Render</small>

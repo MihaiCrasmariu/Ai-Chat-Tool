@@ -7,6 +7,7 @@ const output = document.getElementById("output");
 const BASE_URL = "https://ai-chat-tool-backend.onrender.com";
 
 
+
 // ------------------------------
 // Test backend: GET /api/hello
 // ------------------------------
