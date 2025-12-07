@@ -6,21 +6,34 @@ const output = document.getElementById("output");
 // baza URL-ului de backend (Render)
 const BASE_URL = "https://ai-chat-tool-backend.onrender.com";
 
+
+// ------------------------------
 // Test backend: GET /api/hello
+// ------------------------------
 testBackendBtn.addEventListener("click", async () => {
     output.textContent = "Checking backend...";
 
     try {
         const response = await fetch(`${BASE_URL}/api/hello`);
         const data = await response.json();
-        output.textContent = JSON.stringify(data, null, 2);
+
+        // afișăm DOAR mesajul, nu JSON-ul
+        if (data.message) {
+            output.textContent = data.message;
+        } else {
+            output.textContent = JSON.stringify(data, null, 2);
+        }
+
     } catch (error) {
         output.textContent = "Error: " + error.message;
         console.error(error);
     }
 });
 
+
+// ------------------------------
 // AI endpoint: POST /api/ai
+// ------------------------------
 sendPromptBtn.addEventListener("click", async () => {
     const prompt = promptInput.value.trim();
 
@@ -34,14 +47,19 @@ sendPromptBtn.addEventListener("click", async () => {
     try {
         const response = await fetch(`${BASE_URL}/api/ai`, {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ prompt })
         });
 
         const data = await response.json();
-        output.textContent = JSON.stringify(data, null, 2);
+
+        // dacă backend-ul trimite { response: "...text..." }
+        if (data.response) {
+            output.textContent = data.response;
+        } else {
+            output.textContent = JSON.stringify(data, null, 2);
+        }
+
     } catch (error) {
         output.textContent = "Error: " + error.message;
         console.error(error);
