@@ -8,24 +8,38 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>AI Tool - Hackathon Starter</h1>
+    <div class="app">
+        <header class="app-header">
+            <h1>AI Tool – Hackathon Starter</h1>
+            <p class="subtitle">Simple full-stack AI demo (Flask · OpenAI · Render · Vercel)</p>
+        </header>
 
-    <section>
-        <h2>Test backend</h2>
-        <button id="test-backend">Test backend</button>
-    </section>
+        <main class="app-main">
+            <section class="card">
+                <h2>Backend status</h2>
+                <button id="test-backend" class="btn secondary">Test backend</button>
+            </section>
 
-    <section>
-        <h2>AI Prompt</h2>
-        <label for="prompt">Your prompt:</label><br>
-        <textarea id="prompt" rows="4" cols="50"></textarea><br>
-        <button id="send-prompt">Send to AI</button>
-    </section>
+            <section class="card">
+                <h2>AI Prompt</h2>
+                <label for="prompt" class="label">Your prompt:</label>
+                <textarea id="prompt" rows="4" class="input"></textarea>
+                <button id="send-prompt" class="btn primary">Send to AI</button>
+            </section>
 
-    <h2>Output</h2>
-    <pre id="output"></pre>
+            <section class="card">
+                <h2>Output</h2>
+                <pre id="output" class="output"></pre>
+            </section>
+        </main>
+
+        <footer class="app-footer">
+            <small>Built for practice · Flask · OpenAI · Vercel · Render</small>
+        </footer>
+    </div>
 
     <script src="script.js"></script>
 </body>
+
 
 </html>

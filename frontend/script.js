@@ -1,22 +1,26 @@
-const button = document.getElementById("test-backend");
+const testBackendBtn = document.getElementById("test-backend");
+const sendPromptBtn = document.getElementById("send-prompt");
+const promptInput = document.getElementById("prompt");
 const output = document.getElementById("output");
 
-button.addEventListener("click", async () => {
-    output.textContent = "Calling backend...";
+// baza URL-ului de backend (Render)
+const BASE_URL = "https://ai-chat-tool-backend.onrender.com";
+
+// Test backend: GET /api/hello
+testBackendBtn.addEventListener("click", async () => {
+    output.textContent = "Checking backend...";
 
     try {
-        const response = await fetch("http://127.0.0.1:5000/api/hello");
+        const response = await fetch(`${BASE_URL}/api/hello`);
         const data = await response.json();
         output.textContent = JSON.stringify(data, null, 2);
-    } catch (err) {
-        output.textContent = "Error: " + err.message;
-        console.error(err);
+    } catch (error) {
+        output.textContent = "Error: " + error.message;
+        console.error(error);
     }
 });
 
-const sendPromptBtn = document.getElementById("send-prompt");
-const promptInput = document.getElementById("prompt");
-
+// AI endpoint: POST /api/ai
 sendPromptBtn.addEventListener("click", async () => {
     const prompt = promptInput.value.trim();
 
@@ -28,18 +32,18 @@ sendPromptBtn.addEventListener("click", async () => {
     output.textContent = "Sending to AI...";
 
     try {
-        const response = await fetch("http://127.0.0.1:5000/api/ai", {
+        const response = await fetch(`${BASE_URL}/api/ai`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ prompt: prompt })
+            body: JSON.stringify({ prompt })
         });
 
         const data = await response.json();
         output.textContent = JSON.stringify(data, null, 2);
-
     } catch (error) {
         output.textContent = "Error: " + error.message;
+        console.error(error);
     }
 });
